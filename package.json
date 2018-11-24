@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "npm run prod",
-    "start": "node server.js",
+    "start": "node src/server.js",
     "dev": "webpack-dev-server",
     "test": "NODE_ENV=test jest tests",
     "build": "webpack",
@@ -26,7 +26,10 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "webpack": "^4.26.0",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -52,7 +55,6 @@
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^1.1.2",
-    "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   }

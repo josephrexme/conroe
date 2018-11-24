@@ -7,6 +7,12 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const path = require('path');
 
+const entries = ['./src/index.js'];
+
+if(process.env.NODE_ENV === 'development') {
+  entries.push('webpack-hot-middleware/client?path=http://localhost:7700/__webpack_hmr&timeout=4000');
+}
+
 const prodPlugins = process.env.NODE_ENV === 'development' ? [] : [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('production'),
@@ -16,7 +22,7 @@ const prodPlugins = process.env.NODE_ENV === 'development' ? [] : [
 const config = {
   mode: process.env.NODE_ENV,
 
-  entry: './src/index.js',
+  entry: entries,
 
   output: {
     filename: 'bundle.js',
