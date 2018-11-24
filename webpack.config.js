@@ -16,7 +16,7 @@ const prodPlugins = process.env.NODE_ENV === 'development' ? [] : [
 const config = {
   mode: process.env.NODE_ENV,
 
-  entry: './src/index.jsx',
+  entry: './src/index.js',
 
   output: {
     filename: 'bundle.js',
