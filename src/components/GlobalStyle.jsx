@@ -8,16 +8,20 @@ const GlobalStyle = createGlobalStyle`
     --color-link: #b67e38;
     --font-primary: 'Open Sans', sans-serif;
     --font-secondary: 'Open Sans Condensed', sans-serif;
+    font-size: 62.5%;
   }
   body{
     margin: 0;
     background: var(--color-bg);
     color: var(--color-fg);
-    font-family: var(--font-primary);
+    font: 1.4rem/1.2 var(--font-primary);
   }
   a{
     text-decoration: none;
     color: var(--color-link);
+  }
+  button, input{
+    font: inherit;
   }
 `;
 

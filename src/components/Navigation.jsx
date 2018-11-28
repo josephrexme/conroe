@@ -5,6 +5,14 @@ import styled from 'styled-components';
 const NavStyle = styled.nav`
   display: flex;
   justify-content: space-between;
+  padding: 4rem;
+  h1{
+    margin: 0;
+  }
+  a{
+    display: inline-block;
+    margin-left: 1.5rem;
+  }
 `;
 
 const Navigation = () => (
