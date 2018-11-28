@@ -80,6 +80,7 @@ const config = {
       hash: true,
       mobile: true,
       favicon: 'public/favicon.ico',
+      headHtmlSnippet: '<link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">',
       appMountId: 'app',
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV', 'HOST']),
