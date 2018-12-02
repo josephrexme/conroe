@@ -23,6 +23,9 @@ const GlobalStyle = createGlobalStyle`
   button, input{
     font: inherit;
   }
+  img{
+    width: 100%;
+  }
 `;
 
 export default GlobalStyle;

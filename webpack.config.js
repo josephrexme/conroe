@@ -45,20 +45,31 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(jpe?g|png|svg)$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 1500 },
-        },
-        {
-          loader: 'image-webpack-loader',
-          query: {
-            progressive: true,
-            optipng: {
-              optimizationLevel: 7
-            }
+        test: /\.svg$/,
+        use: [
+          'babel-loader',
+          {
+            loader: 'react-svg-loader',
+            options: { jsx: true }
           }
-        }]
+        ],
+      },
+      {
+        test: /\.(jpe?g|png)$/,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 80,
+              },
+              optipng: {
+                optimizationLevel: 7
+              }
+            }
+          }]
       }
     ]
   },

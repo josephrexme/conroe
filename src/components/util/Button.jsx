@@ -4,22 +4,25 @@ import styled, { css } from 'styled-components';
 
 const ButtonStyle = styled.button`
   display: inline-block;
-  ${props => props.primary && css`
+  border: 0;
+  ${props => props.variant === 'primary' && css`
     background: #0be;
   `}
 `;
 
-const Button = ({ children, type }) => (
-  <ButtonStyle type={type}>{children}</ButtonStyle>
+const Button = ({ children, type, variant }) => (
+  <ButtonStyle type={type} variant={variant}>{children}</ButtonStyle>
 );
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   type: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Button.defaultProps = {
-  type: 'submit'
+  type: 'submit',
+  variant: '',
 };
 
 export default Button;

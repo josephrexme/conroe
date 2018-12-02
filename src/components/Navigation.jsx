@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import NDBLogo from '../../assets/ndb-logo.svg';
 
 const NavStyle = styled.nav`
   display: flex;
   justify-content: space-between;
-  padding: 4rem;
+  padding: 8rem 5rem;
   h1{
     margin: 0;
   }
@@ -17,7 +18,9 @@ const NavStyle = styled.nav`
 
 const Navigation = () => (
   <NavStyle>
-    <h1>NDB</h1>
+    <Link to="/">
+      <NDBLogo width={50} />
+    </Link>
     <div>
       <Link to="/movies">Movies</Link>
       <Link to="/movies">TV Shows</Link>
