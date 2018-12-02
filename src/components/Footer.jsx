@@ -8,14 +8,14 @@ const FooterStyle = styled.footer`
   > div{
     padding: 4rem 2rem;
     &:first-of-type{
-      flex-grow: .4;
+      flex-basis: 25%;
       background: var(--color-brand-1);
       color: #222;
       text-align: center;
     }
     &:last-of-type{
       position: relative;
-      flex-grow: 4;
+      flex-basis: 75%;
       background: #161616;
       p{
         position: absolute;

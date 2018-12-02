@@ -12,12 +12,15 @@ const HomeStyle = styled.div`
     display: block;
     width: 100%;
     height: 4rem;
-    padding: 0 2rem;
+    padding: 0 11.5rem 0 2rem;
     border: 0;
     border-radius: var(--curve-radius);
     background: rgba(255, 255, 255, .2);
     color: #eee;
     box-shadow: 0 .2rem .4rem rgba(0, 0, 0, .5);
+    &::placeholder{
+      color: #bbb;
+    }
   }
   label{
     display: block;
@@ -35,6 +38,7 @@ const HomeStyle = styled.div`
     border: 0;
     border-radius: 0 var(--curve-radius) var(--curve-radius) 0;
     background: var(--color-brand-1);
+    cursor: pointer;
   }
 `;
 
@@ -46,7 +50,7 @@ const Home = () => (
         <p>Your most reliable source on the Nigerian movie industry</p>
         <form action="">
           <label htmlFor="mainSearch">
-            <input type="search" id="mainSearch" />
+            <input type="search" placeholder="Search Movies, Celebrities, Shows, and more..." id="mainSearch" />
             <button type="submit">Search</button>
           </label>
         </form>
