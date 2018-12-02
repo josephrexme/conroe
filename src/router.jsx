@@ -4,6 +4,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { NotFound } from './components/Errors';
 import GlobalStyle from './components/GlobalStyle';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 import Home from './components/Home';
 
 const AppRouter = () => (
@@ -18,6 +19,7 @@ const AppRouter = () => (
           <Route path="/name/:id" component={() => 'Hi'} />
           <Route component={NotFound} />
         </Switch>
+        <Footer />
       </React.Fragment>
     </Router>
   </ErrorBoundary>

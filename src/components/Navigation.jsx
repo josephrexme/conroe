@@ -6,20 +6,23 @@ import NDBLogo from '../../assets/ndb-logo.svg';
 const NavStyle = styled.nav`
   display: flex;
   justify-content: space-between;
-  padding: 8rem 5rem;
+  padding: 8rem 6rem;
   h1{
     margin: 0;
   }
-  a{
+  div > *{
     display: inline-block;
-    margin-left: 1.5rem;
+    margin-left: 2rem;
+  }
+  a{
+    color: inherit;
   }
 `;
 
 const Navigation = () => (
   <NavStyle>
     <Link to="/">
-      <NDBLogo width={50} />
+      <NDBLogo width={60} />
     </Link>
     <div>
       <Link to="/movies">Movies</Link>
