@@ -86,7 +86,6 @@ const config = {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       title: 'Nollywood Database',
-      inject: false,
       template: HtmlWebpackTemplate,
       hash: true,
       mobile: true,
