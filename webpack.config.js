@@ -91,7 +91,7 @@ const config = {
       hash: true,
       mobile: true,
       favicon: 'public/favicon.ico',
-      headHtmlSnippet: '<base href="/" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet">',
+      headHtmlSnippet: '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet">',
       appMountId: 'app',
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV', 'HOST']),
