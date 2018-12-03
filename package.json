@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "The Nollywood Database",
   "main": "server.js",
+  "engines": {
+    "node": "10.11.0"
+  },
   "scripts": {
     "start": "node src/server.js",
     "dev": "webpack-dev-server",
