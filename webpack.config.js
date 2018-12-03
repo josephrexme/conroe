@@ -87,6 +87,7 @@ const config = {
     new HtmlWebpackPlugin({
       title: 'Nollywood Database',
       template: HtmlWebpackTemplate,
+      inject: false,
       hash: true,
       mobile: true,
       favicon: 'public/favicon.ico',
