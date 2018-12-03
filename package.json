@@ -4,6 +4,7 @@
   "description": "The Nollywood Database",
   "main": "server.js",
   "scripts": {
+    "postinstall": "npm run prod",
     "start": "node src/server.js",
     "dev": "webpack-dev-server",
     "test": "NODE_ENV=test jest --notify tests",
