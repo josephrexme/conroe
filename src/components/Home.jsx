@@ -9,10 +9,11 @@ const HomeStyle = styled.div`
     text-align: center;
   }
   input{
+    appearance: none;
     display: block;
     width: 100%;
     height: 4rem;
-    padding: 0 11.5rem 0 2rem;
+    padding: .2rem 11.5rem 0 1.5rem;
     border: 0;
     border-radius: var(--curve-radius);
     background: rgba(255, 255, 255, .2);
@@ -26,6 +27,7 @@ const HomeStyle = styled.div`
     display: block;
     position: relative;
     width: 100%;
+    height: 4rem;
     max-width: 60rem;
     margin: 5.8rem auto;
   }
