@@ -34,19 +34,19 @@ const NavStyle = styled.nav`
       opacity: 0;
       transition: transform .4s ease-in-out, opacity .5s ease-in;
       &:nth-of-type(1){
-        transition-delay: .12s;
+        transition-delay: .02s;
       }
       &:nth-of-type(2){
-        transition-delay: .16s;
+        transition-delay: .06s;
       }
       &:nth-of-type(3){
-        transition-delay: .20s;
+        transition-delay: .10s;
       }
       &:nth-of-type(4){
-        transition-delay: .24s;
+        transition-delay: .14s;
       }
       &:nth-of-type(5){
-        transition-delay: .28s;
+        transition-delay: .18s;
       }
       &::before, &::after{
         position: absolute;
