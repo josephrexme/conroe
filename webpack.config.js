@@ -88,7 +88,7 @@ const config = {
       title: 'Nollywood Database',
       template: HtmlWebpackTemplate,
       inject: false,
-      hash: true,
+      hash: false,
       mobile: true,
       favicon: 'public/favicon.ico',
       headHtmlSnippet: '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet">',
