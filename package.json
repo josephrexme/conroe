@@ -8,6 +8,7 @@
     "npm": "6.4.1"
   },
   "scripts": {
+    "postinstall": "npm run prod",
     "start": "node src/server.js",
     "dev": "webpack-dev-server",
     "test": "NODE_ENV=test jest --notify tests",

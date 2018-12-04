@@ -90,7 +90,7 @@ const config = {
       inject: false,
       hash: true,
       mobile: true,
-      favicon: 'public/favicon.ico',
+      favicon: 'assets/favicon.ico',
       headHtmlSnippet: '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet">',
       appMountId: 'app',
     }),
