@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
   }
   body{
+    width: 100vw;
     margin: 0;
     background-color: var(--color-bg);
     background-image: url(${TheaterBG});
@@ -27,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
     background-position: 0% 30rem;
     color: var(--color-fg);
     font: 1.6rem/1.2 var(--font-primary);
+    overflow: hidden;
   }
   a{
     text-decoration: none;

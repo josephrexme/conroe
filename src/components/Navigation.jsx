@@ -32,7 +32,22 @@ const NavStyle = styled.nav`
       text-align: center;
       transform: translateY(10rem);
       opacity: 0;
-      transition: transform .8s ease-in-out, opacity 1s ease-in;
+      transition: transform .4s ease-in-out, opacity .5s ease-in;
+      &:nth-of-type(1){
+        transition-delay: .12s;
+      }
+      &:nth-of-type(2){
+        transition-delay: .16s;
+      }
+      &:nth-of-type(3){
+        transition-delay: .20s;
+      }
+      &:nth-of-type(4){
+        transition-delay: .24s;
+      }
+      &:nth-of-type(5){
+        transition-delay: .28s;
+      }
       &::before, &::after{
         position: absolute;
         top: 50%;
@@ -137,7 +152,7 @@ const Hamburger = styled.button`
     height: 4rem;
     background: #000;
     border-radius: 50%;
-    transition: transform .7s ease;
+    transition: transform .5s ease;
   }
   @media (min-width: 40rem){
     display: none;
