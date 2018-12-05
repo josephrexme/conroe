@@ -51,7 +51,11 @@ const HomeStyle = styled.div`
     cursor: pointer;
     &:focus{
       outline: none;
+      background: var(--color-brand-2);
       border-color: var(--color-link);
+    }
+    &:hover{
+      background: var(--color-brand-2);
     }
   }
   @media (min-width: 720px) {

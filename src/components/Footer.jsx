@@ -65,7 +65,7 @@ const Footer = () => (
     <FooterStyle>
       <div>
         <div>
-          <NDBLogo width={80} />
+          <NDBLogo width={60} />
           <p>&copy; 2019 NollywoodDB</p>
           <Heading6>nollywooddb.com</Heading6>
         </div>

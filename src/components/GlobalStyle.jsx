@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     --color-fg: #fff;
     --color-link: #b67e38;
     --color-brand-1: #ffc900;
+    --color-brand-2: #edaf08;
     --font-primary: 'Open Sans', sans-serif;
     --font-secondary: 'Open Sans Condensed', sans-serif;
     --curve-radius: 1.2rem;
