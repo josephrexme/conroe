@@ -13,14 +13,23 @@ const HomeStyle = styled.div`
     display: block;
     width: 100%;
     height: 4rem;
-    padding: .2rem 11.5rem 0 1.5rem;
-    border: 0;
+    padding: .2rem 1.5rem;
+    border: solid .2rem transparent;
     border-radius: var(--curve-radius);
     background: rgba(255, 255, 255, .2);
     color: #eee;
     box-shadow: 0 .2rem .4rem rgba(0, 0, 0, .5);
     &::placeholder{
       color: #bbb;
+    }
+    &:focus{
+      outline: none;
+      background: rgba(255, 255, 255, .8);
+      color: #333;
+      border-color: var(--color-link);
+      &::placeholder{
+        color: #555;
+      }
     }
   }
   label{
@@ -32,15 +41,32 @@ const HomeStyle = styled.div`
     margin: 5.8rem auto;
   }
   button{
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
     padding: 1rem 3rem;
-    border: 0;
-    border-radius: 0 var(--curve-radius) var(--curve-radius) 0;
+    border: solid .2rem transparent;
+    border-radius: var(--curve-radius);
     background: var(--color-brand-1);
     cursor: pointer;
+    &:focus{
+      outline: none;
+      border-color: var(--color-link);
+    }
+  }
+  @media (min-width: 720px) {
+    input{
+      padding: .1rem 11.5rem .1rem 1.5rem;
+    }
+    button{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: auto;
+      height: 100%;
+      margin: 0;
+      border-radius: 0 var(--curve-radius) var(--curve-radius) 0;
+    }
   }
 `;
 
