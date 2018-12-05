@@ -80,6 +80,12 @@ const config = {
 
   devtool: 'source-map',
 
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
+
   plugins: [
     new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
     new webpack.HotModuleReplacementPlugin(),
