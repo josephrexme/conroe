@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     background-position: 0% 30rem;
     color: var(--color-fg);
     font: 1.6rem/1.2 var(--font-primary);
-    overflow: hidden;
+    overflow-x: hidden;
   }
   a{
     text-decoration: none;

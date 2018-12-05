@@ -8,7 +8,7 @@ const NavStyle = styled.nav`
   position: relative;
   justify-content: space-between;
   padding: 5rem 3rem;
-  @media (min-width: 40rem) {
+  @media (min-width: 762px) {
     padding: 8rem 6rem;
   }
   svg{
@@ -72,7 +72,7 @@ const NavStyle = styled.nav`
         transform: translateX(-50%) translateY(-50%) scale(0.7);
       }
     }
-    @media(min-width: 40rem) {
+    @media(min-width: 762px) {
       position: static;
       opacity: 1;
       z-index: 0;
@@ -102,7 +102,7 @@ const NavStyle = styled.nav`
   `}
   a{
     color: inherit;
-    &:hover{
+    &:hover, &:focus{
       color: #888;
     }
   }
@@ -121,8 +121,10 @@ const Hamburger = styled.button`
   padding: 0;
   background: none;
   border: 0;
-  outline: none;
   cursor: pointer;
+  &:focus{
+    outline: none;
+  }
   span{
     position: absolute;
     top: 0;
@@ -154,7 +156,7 @@ const Hamburger = styled.button`
     border-radius: 50%;
     transition: transform .5s ease;
   }
-  @media (min-width: 40rem){
+  @media (min-width: 762px){
     display: none;
   }
   ${props => props.nav && css`
