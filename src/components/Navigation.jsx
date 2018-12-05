@@ -21,7 +21,7 @@ const NavStyle = styled.nav`
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: 10rem 0 0;
+    padding: 4rem 0 0;
     z-index: -1;
     opacity: 0;
     > * {
