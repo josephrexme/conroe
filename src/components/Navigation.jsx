@@ -32,7 +32,7 @@ const NavStyle = styled.nav`
       text-align: center;
       transform: translateY(10rem);
       opacity: 0;
-      transition: transform .4s ease-in-out, opacity .5s ease-in;
+      transition: transform .4s ease-in-out, opacity .4s ease-in-out;
       &:nth-of-type(1){
         transition-delay: .02s;
       }
@@ -101,9 +101,8 @@ const NavStyle = styled.nav`
     }
   `}
   a{
-    color: inherit;
     &:hover, &:focus{
-      color: #888;
+      opacity: .8;
     }
   }
 `;
