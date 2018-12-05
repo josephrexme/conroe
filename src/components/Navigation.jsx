@@ -28,7 +28,7 @@ const NavStyle = styled.nav`
       position: relative;
       display: block;
       padding: 2rem 1rem;
-      font-size: 3rem;
+      font-size: 2.8rem;
       text-align: center;
       transform: translateY(10rem);
       opacity: 0;
@@ -101,6 +101,7 @@ const NavStyle = styled.nav`
     }
   `}
   a{
+    color: inherit;
     &:hover, &:focus{
       opacity: .8;
     }
