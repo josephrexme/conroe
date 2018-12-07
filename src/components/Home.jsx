@@ -13,7 +13,7 @@ const HomeStyle = styled.div`
     display: block;
     width: 100%;
     height: 4rem;
-    padding: .2rem 1.5rem;
+    padding: .2rem 1.2rem;
     border: solid .2rem transparent;
     border-radius: var(--curve-radius);
     background: rgba(255, 255, 255, .2);
@@ -54,7 +54,7 @@ const HomeStyle = styled.div`
       background: var(--color-brand-2);
       border-color: var(--color-link);
     }
-    &:hover{
+    &:hover, &:focus{
       background: var(--color-brand-2);
     }
   }
@@ -82,7 +82,7 @@ const Home = () => (
         <p>Your most reliable source on the Nigerian movie industry</p>
         <form action="">
           <label htmlFor="mainSearch">
-            <input type="search" placeholder="Search Movies, Celebrities, Shows, and more..." id="mainSearch" />
+            <input type="search" placeholder="Search Movies, Celebrities, Shows" id="mainSearch" />
             <button type="submit">Search</button>
           </label>
         </form>

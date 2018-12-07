@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     --color-brand-2: #edaf08;
     --font-primary: 'Open Sans', sans-serif;
     --font-secondary: 'Open Sans Condensed', sans-serif;
-    --curve-radius: 1.2rem;
+    --curve-radius: 1.0rem;
     font-size: 62.5%;
   }
   body{

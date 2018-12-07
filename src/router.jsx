@@ -6,6 +6,7 @@ import GlobalStyle from './components/GlobalStyle';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import Name from './components/Name';
 
 const AppRouter = () => (
   <ErrorBoundary>
@@ -16,7 +17,7 @@ const AppRouter = () => (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/title/:id" component={() => 'Hi'} />
-          <Route path="/name/:id" component={() => 'Hi'} />
+          <Route path="/name/:id" component={Name} />
           <Route component={NotFound} />
         </Switch>
         <Footer />
