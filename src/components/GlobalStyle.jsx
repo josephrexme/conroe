@@ -18,9 +18,10 @@ const GlobalStyle = createGlobalStyle`
     --font-secondary: 'Open Sans Condensed', sans-serif;
     --curve-radius: 1.0rem;
     font-size: 62.5%;
+    width: 100%;
   }
   body{
-    width: 100vw;
+    width: 100%;
     margin: 0;
     background-color: var(--color-bg);
     background-image: url(${TheaterBG});
