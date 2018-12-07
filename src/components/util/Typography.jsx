@@ -7,6 +7,9 @@ export const Heading1 = styled.h1`
   ${props => props.condensed && css`
     font-family: var(--font-secondary);
   `}
+  ${props => props.themed && css`
+    color: var(--color-brand-1);
+  `}
 `;
 
 export const Heading2 = styled.h2`
@@ -15,6 +18,9 @@ export const Heading2 = styled.h2`
   font-weight: 700;
   ${props => props.condensed && css`
     font-family: var(--font-secondary);
+  `}
+  ${props => props.themed && css`
+    color: var(--color-brand-1);
   `}
 `;
 
@@ -25,6 +31,9 @@ export const Heading3 = styled.h3`
   ${props => props.condensed && css`
     font-family: var(--font-secondary);
   `}
+  ${props => props.themed && css`
+    color: var(--color-brand-1);
+  `}
 `;
 
 export const Heading4 = styled.h4`
@@ -33,6 +42,9 @@ export const Heading4 = styled.h4`
   font-weight: 700;
   ${props => props.condensed && css`
     font-family: var(--font-secondary);
+  `}
+  ${props => props.themed && css`
+    color: var(--color-brand-1);
   `}
 `;
 
@@ -43,6 +55,9 @@ export const Heading5 = styled.h5`
   ${props => props.condensed && css`
     font-family: var(--font-secondary);
   `}
+  ${props => props.themed && css`
+    color: var(--color-brand-1);
+  `}
 `;
 
 export const Heading6 = styled.h6`
@@ -51,5 +66,8 @@ export const Heading6 = styled.h6`
   font-weight: 700;
   ${props => props.condensed && css`
     font-family: var(--font-secondary);
+  `}
+  ${props => props.themed && css`
+    color: var(--color-brand-1);
   `}
 `;

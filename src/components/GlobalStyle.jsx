@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     background-size: 100%;
     background-position: 0% 30rem;
     color: var(--color-fg);
-    font: 1.6rem/1.2 var(--font-primary);
+    font: 1.6rem/1.6 var(--font-primary);
     overflow-x: hidden;
   }
   a{
