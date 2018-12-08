@@ -1,8 +1,14 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Container } from './util/Helpers';
+import { Link } from 'react-router-dom';
+import { Container, FloatRight } from './util/Helpers';
 import Search from './Search';
-import { Heading2, Heading3, Heading4 } from './util/Typography';
+import {
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading6
+} from './util/Typography';
 
 const PageStyle = styled.div`
   position: relative;
@@ -70,10 +76,29 @@ const FilmList = styled.ul`
       background: #1c1c1c;
     }
   }
+  strong{
+    display: inline-block;
+    margin-top: 1.6rem;
+    color: #75736B;
+  }
+  h6{
+    text-overflow: wrap;
+    max-width: 90%;
+  }
   @media(min-width: 720px) {
     li{
       padding: 2rem 4rem;
     }
+  }
+`;
+
+const Photos = styled.div`
+  img{
+    width: 12rem;
+    height: 12rem;
+    margin-right: 1rem;
+    border-radius: var(--curve-radius);
+    object-fit: cover;
   }
 `;
 
@@ -111,16 +136,39 @@ const Name = () => (
             </p>
           </article>
           <Heading4 condensed themed>Official Photos</Heading4>
+          <Photos>
+            <img src="http://placehold.it/200" alt="official shot" />
+            <img src="http://placehold.it/200" alt="official shot" />
+            <img src="http://placehold.it/200" alt="official shot" />
+            <img src="http://placehold.it/200" alt="official shot" />
+          </Photos>
         </div>
       </Content>
       <Content>
         <Heading3 condensed themed>Filmography</Heading3>
       </Content>
       <FilmList>
-        <li>Movie A</li>
-        <li>Movie B</li>
-        <li>Movie C</li>
-        <li>Movie D</li>
+        <li>
+          <FloatRight>
+            <strong>2017</strong>
+          </FloatRight>
+          <Heading6><Link to="/">Movie Title</Link></Heading6>
+          <p>Janet Doe</p>
+        </li>
+        <li>
+          <FloatRight>
+            <strong>2016</strong>
+          </FloatRight>
+          <Heading6><Link to="/">Movie Title</Link></Heading6>
+          <p>Janet Doe</p>
+        </li>
+        <li>
+          <FloatRight>
+            <strong>2015</strong>
+          </FloatRight>
+          <Heading6><Link to="/">Movie Title</Link></Heading6>
+          <p>Janet Doe</p>
+        </li>
       </FilmList>
       <Content>
         <Heading3 condensed themed>Personal Details</Heading3>
