@@ -44,7 +44,7 @@ const HomeStyle = styled.div`
     display: block;
     width: 100%;
     margin: 1rem 0;
-    padding: 1rem 3rem;
+    padding: .2rem 3rem;
     border: solid .2rem transparent;
     border-radius: var(--curve-radius);
     background: var(--color-brand-1);
