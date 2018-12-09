@@ -32,6 +32,9 @@ const GlobalStyle = createGlobalStyle`
     font: 1.6rem/1.6 var(--font-primary);
     overflow-x: hidden;
   }
+  #app{
+    overflow: hidden;
+  }
   a{
     text-decoration: none;
     color: var(--color-link);

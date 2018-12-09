@@ -4,7 +4,7 @@ import { Container } from './util/Helpers';
 import { Heading1 } from './util/Typography';
 
 const HomeStyle = styled.div`
-  padding: 4rem 2rem;
+  padding: 2rem;
   header{
     text-align: center;
   }
@@ -43,8 +43,9 @@ const HomeStyle = styled.div`
   button{
     display: block;
     width: 100%;
+    height: 4rem;
     margin: 1rem 0;
-    padding: .2rem 3rem;
+    padding: .5rem 3rem;
     border: solid .2rem transparent;
     border-radius: var(--curve-radius);
     background: var(--color-brand-1);

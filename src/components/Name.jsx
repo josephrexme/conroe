@@ -31,7 +31,7 @@ const Content = styled.section`
     padding: 2rem 4rem;
   }
   ${props => props.leftpad && css`
-    padding: 20rem 2rem 2rem 2rem;
+    padding: 28rem 2rem 2rem 2rem;
     @media (min-width: 720px) {
       padding: 2rem 2rem 3rem 35rem;
     }
@@ -92,6 +92,22 @@ const FilmList = styled.ul`
   }
 `;
 
+const Starmeter = styled.div`
+  position: absolute;
+  top: 24rem;
+  width: 90%;
+  padding: 1.5rem 2rem;
+  background: var(--color-brand-1);
+  color: #222;
+  font-weight: 700;
+  box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, .8);
+  @media(min-width: 722px) {
+    top: 11.2rem;
+    right: -2rem;
+    width: 15rem;
+  }
+`;
+
 const Photos = styled.div`
   img{
     width: 12rem;
@@ -114,6 +130,9 @@ const Name = () => (
             <a href="/">View agent or request access</a>
           </p>
         </Actor>
+        <Starmeter>
+          120/200
+        </Starmeter>
         <div>
           <Heading2 condensed themed>Artist Name</Heading2>
           <p>

@@ -21,14 +21,14 @@ const NavStyle = styled.nav`
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: 4rem 0 0;
+    padding: .5rem 0 0;
     z-index: -1;
     opacity: 0;
     > * {
       position: relative;
       display: block;
       padding: 2rem 1rem;
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       text-align: center;
       transform: translateY(10rem);
       opacity: 0;
