@@ -1,6 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { Container } from './util/Helpers';
+import Error404 from '../../assets/404sign-ndb.svg';
+import { Heading5 } from './util/Typography';
+import Button from './util/Button';
+
+const ErrorStyle = styled.div`
+  margin: 10rem 0;
+  text-align: center;
+`;
 
 const Status = ({ code, children }) => (
   <Route render={({ staticContext }) => {
@@ -15,22 +25,26 @@ const Status = ({ code, children }) => (
 
 export const NotFound = () => (
   <Status code="404">
-    <div className="error">
-      <h3>
-        <strong>404:</strong>
-        Page not found
-      </h3>
-      <p>This page does not exist</p>
-    </div>
+    <ErrorStyle>
+      <Container>
+        <Error404 width="70%" />
+        <Heading5>THE CONTENT YOU ARE LOOKING FOR DOES NOT EXIST</Heading5>
+        <Link to="/">
+          <Button size="big" variant="primary">VISIT HOMEPAGE</Button>
+        </Link>
+      </Container>
+    </ErrorStyle>
   </Status>
 );
 
 export const NoAccess = () => (
   <Status code="401">
-    <div className="error">
-      <h3>Restricted Access</h3>
-      <p>You are not authorized to view this page</p>
-    </div>
+    <ErrorStyle>
+      <Container>
+        <h3>Restricted Access</h3>
+        <p>You are not authorized to view this page</p>
+      </Container>
+    </ErrorStyle>
   </Status>
 );
 
