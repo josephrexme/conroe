@@ -25,3 +25,12 @@ export const TextLeft = styled.span`
 export const TextRight = styled.span`
   text-align: right;
 `;
+
+export const Page = styled.div`
+  position: relative;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding: 4rem 5rem;
+  background: #161616;
+  box-shadow: 0 .2rem .5rem rgba(10, 10, 10, .5);
+`;

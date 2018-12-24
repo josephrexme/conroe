@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from './util/Helpers';
-import { Heading1 } from './util/Typography';
+import Trailers from './Trailers';
+import { Container, Page } from './util/Helpers';
+import { Heading1, Heading3 } from './util/Typography';
 
 const HomeStyle = styled.div`
   padding: 2rem;
@@ -89,6 +90,10 @@ const Home = () => (
         </form>
       </header>
     </HomeStyle>
+    <Page>
+      <Heading3 condensed themed>Browse Trailers</Heading3>
+      <Trailers />
+    </Page>
   </Container>
 );
 
