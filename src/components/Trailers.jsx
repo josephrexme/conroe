@@ -27,6 +27,10 @@ const ArrowStyle = styled.button`
   }
 `;
 
+const SlideItem = styled.div`
+  padding: 1rem;
+`;
+
 /* eslint-disable react/prop-types */
 const Previous = ({ className, onClick }) => (
   <ArrowStyle className={className} onClick={onClick}>
@@ -69,21 +73,21 @@ const settings = {
 
 const Trailers = () => (
   <Slider {...settings}>
-    <div>
+    <SlideItem>
       <img src="http://placehold.it/200" alt="placed" />
-    </div>
-    <div>
+    </SlideItem>
+    <SlideItem>
       <img src="http://placehold.it/200" alt="placed" />
-    </div>
-    <div>
+    </SlideItem>
+    <SlideItem>
       <img src="http://placehold.it/200" alt="placed" />
-    </div>
-    <div>
+    </SlideItem>
+    <SlideItem>
       <img src="http://placehold.it/200" alt="placed" />
-    </div>
-    <div>
+    </SlideItem>
+    <SlideItem>
       <img src="http://placehold.it/200" alt="placed" />
-    </div>
+    </SlideItem>
   </Slider>
 );
 
