@@ -15,6 +15,11 @@ const trailers = (state = initialState, action) => {
         ready: 'loaded',
         list: action.payload,
       };
+    case 'ERROR_TRAILERS':
+      return {
+        ready: 'Error',
+        list: action.payload,
+      };
     default:
       return state;
   }

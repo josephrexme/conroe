@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import * as actionCreators from '../actionCreators';
+import { getContentByReady } from '../helpers/functions';
 import ArrowLeft from '../../assets/arrow-left.svg';
 import ArrowRight from '../../assets/arrow-right.svg';
 
@@ -78,11 +79,11 @@ class Trailers extends Component {
     fetchTrailers();
   }
 
-  load() {
+  loading() {
     return (<p>Loading...</p>);
   }
 
-  showTrailers() {
+  loaded() {
     const { trailers: { list } } = this.props;
     return (
       <Slider {...settings}>
@@ -95,9 +96,13 @@ class Trailers extends Component {
     );
   }
 
+  error() {
+    return (<p>An error occured</p>);
+  }
+
   render() {
     const { trailers: { ready } } = this.props;
-    return ready === 'loading' ? this.load() : this.showTrailers();
+    return getContentByReady(ready, this);
   }
 }
 
