@@ -30,9 +30,18 @@ const Content = styled.div`
   max-width: 80rem;
   max-height: 30rem;
   margin: 20rem auto;
+  background: #000;
+  opacity: 0;
+  transform: translateY(20rem) scale(0.2);
+  transform-origin: center;
+  transition: transform .3s ease-in-out, opacity .3s ease;
   @media(min-width: 720px) {
     max-height: 50rem;
   }
+  ${({ mounted }) => mounted && css`
+    opacity: 1;
+    transform: translate(0) scale(1);
+  `}
   > *{
     width: 100%;
     height: 100%;
@@ -49,9 +58,13 @@ const Content = styled.div`
 `;
 
 class Modal extends Component {
-  componentDidMount() {
+  state = { mounted: false }
+
+  componentWillReceiveProps() {
     const { onOpen } = this.props;
+    const { mounted } = this.state;
     onOpen();
+    setTimeout(() => this.setState({ mounted: !mounted }), 10);
   }
 
   render() {
@@ -62,11 +75,12 @@ class Modal extends Component {
       closeBtn,
       children
     } = this.props;
+    const { mounted } = this.state;
     if(!show) return null;
     return (
       <ModalStyle>
         <BackDrop backdrop={backdrop} onClick={onRequestClose} />
-        <Content>
+        <Content mounted={mounted}>
           { closeBtn ? <CloseButton onClick={onRequestClose} /> : '' }
           {children}
         </Content>
