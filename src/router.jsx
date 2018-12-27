@@ -21,7 +21,7 @@ ReactGA.pageview(`${window.location.pathname}${window.location.search}`);
 const history = createHistory();
 const store = createStore(
   createRootReducer(history),
-  applyMiddleware(reduxThunk, routerMiddleware(history)),
+  applyMiddleware(reduxThunk, routerMiddleware(history))
 );
 
 const AppRouter = () => (

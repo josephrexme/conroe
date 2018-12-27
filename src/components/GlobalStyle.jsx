@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import TheaterBG from '../../assets/theater-bg.jpg';
+import '../../assets/slick/slick.css';
+import '../../assets/slick/slick-theme.css';
 
 const GlobalStyle = createGlobalStyle`
   *{

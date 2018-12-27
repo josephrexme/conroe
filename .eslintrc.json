@@ -12,6 +12,7 @@
     "no-undef": "off",
     "no-unused-vars": "off",
     "comma-dangle": "off",
-    "keyword-spacing": "off"
+    "keyword-spacing": "off",
+    "class-methods-use-this": "off"
   }
 }

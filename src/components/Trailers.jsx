@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-import '../../assets/slick/slick.css';
-import '../../assets/slick/slick-theme.css';
+import * as actionCreators from '../actionCreators';
 import ArrowLeft from '../../assets/arrow-left.svg';
 import ArrowRight from '../../assets/arrow-right.svg';
 
@@ -71,24 +72,39 @@ const settings = {
   ],
 };
 
-const Trailers = () => (
-  <Slider {...settings}>
-    <SlideItem>
-      <img src="http://placehold.it/200" alt="placed" />
-    </SlideItem>
-    <SlideItem>
-      <img src="http://placehold.it/200" alt="placed" />
-    </SlideItem>
-    <SlideItem>
-      <img src="http://placehold.it/200" alt="placed" />
-    </SlideItem>
-    <SlideItem>
-      <img src="http://placehold.it/200" alt="placed" />
-    </SlideItem>
-    <SlideItem>
-      <img src="http://placehold.it/200" alt="placed" />
-    </SlideItem>
-  </Slider>
-);
+class Trailers extends Component {
+  componentDidMount() {
+    const { fetchTrailers } = this.props;
+    fetchTrailers();
+  }
 
-export default Trailers;
+  load() {
+    return (<p>Loading...</p>);
+  }
+
+  showTrailers() {
+    const { trailers: { list } } = this.props;
+    return (
+      <Slider {...settings}>
+        { list.map(slide => (
+          <SlideItem key={slide.id}>
+            <img src={slide.fields.preview[0].url} alt={slide.fields.title} />
+          </SlideItem>
+        )) }
+      </Slider>
+    );
+  }
+
+  render() {
+    const { trailers: { ready } } = this.props;
+    return ready === 'loading' ? this.load() : this.showTrailers();
+  }
+}
+
+const mapStateToProps = ({ trailers }) => ({
+  trailers,
+});
+
+const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch));
+
+export default connect(mapStateToProps, mapDispatchToProps)(Trailers);
