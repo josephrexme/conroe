@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import styled, { css } from 'styled-components';
 import Slider from 'react-slick';
 import * as actionCreators from '../actionCreators';
+import Modal from './util/Modal';
 import { getContentByReady } from '../helpers/functions';
 import ArrowLeft from '../../assets/arrow-left.svg';
 import ArrowRight from '../../assets/arrow-right.svg';
@@ -48,6 +49,10 @@ const SlideItem = styled.div`
     background-size: cover;
     background-position: center center;
     border-radius: .4rem;
+    transition: transform .3s ease-in-out;
+    &:hover, &:focus{
+      transform: scale(1.02);
+    }
     @media(min-width: 420px) {
       height: 28rem;
     }
@@ -104,9 +109,25 @@ const settings = {
 };
 
 class Trailers extends Component {
+  state = {
+    isOpenModal: false,
+    videoId: '',
+  }
+
   componentDidMount() {
     const { fetchTrailers } = this.props;
     fetchTrailers();
+  }
+
+  openModal = (link) => {
+    this.setState({
+      isOpenModal: true,
+      videoId: link,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({ isOpenModal: false });
   }
 
   loading() {
@@ -115,16 +136,27 @@ class Trailers extends Component {
 
   loaded() {
     const { trailers: { list } } = this.props;
+    const { isOpenModal, videoId } = this.state;
     return (
-      <Slider {...settings}>
-        { list.map(slide => (
-          <SlideItem key={slide.id} preview={slide.fields.preview[0].url}>
-            <div title={slide.fields.title}>
-              <PlayButton />
-            </div>
-          </SlideItem>
-        )) }
-      </Slider>
+      <Fragment>
+        <Modal
+          show={isOpenModal}
+          onRequestClose={this.closeModal}
+          backdrop={isOpenModal}
+          closeBtn={isOpenModal}
+        >
+          <iframe src={`https://www.youtube.com/embed/${videoId}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="Video" allowFullScreen={isOpenModal} />
+        </Modal>
+        <Slider {...settings}>
+          { list.map(slide => (
+            <SlideItem key={slide.id} preview={slide.fields.preview[0].url}>
+              <div title={slide.fields.title}>
+                <PlayButton onClick={() => this.openModal(slide.fields.video_link)} />
+              </div>
+            </SlideItem>
+          )) }
+        </Slider>
+      </Fragment>
     );
   }
 
