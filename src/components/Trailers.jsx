@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Slider from 'react-slick';
 import * as actionCreators from '../actionCreators';
 import { getContentByReady } from '../helpers/functions';
 import ArrowLeft from '../../assets/arrow-left.svg';
 import ArrowRight from '../../assets/arrow-right.svg';
+import PlayButton from '../../assets/play-video-nmdb.svg';
 
 const ArrowStyle = styled.button`
   appearance: none;
@@ -31,6 +32,35 @@ const ArrowStyle = styled.button`
 
 const SlideItem = styled.div`
   padding: 1rem;
+  outline: none;
+  svg{
+    width: 8rem;
+    fill: rgba(255, 255, 255, .6);
+    stroke: rgba(255, 255, 255, .6);
+    cursor: pointer;
+  }
+  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 24rem;
+    background-size: cover;
+    background-position: center center;
+    border-radius: .4rem;
+    @media(min-width: 420px) {
+      height: 28rem;
+    }
+    @media(min-width: 500px) {
+      height: 32rem;
+    }
+    @media(min-width: 570px) {
+      height: 35rem;
+    }
+    ${({ preview }) => css`
+      background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(${preview});
+    `}
+  }
 `;
 
 /* eslint-disable react/prop-types */
@@ -88,8 +118,10 @@ class Trailers extends Component {
     return (
       <Slider {...settings}>
         { list.map(slide => (
-          <SlideItem key={slide.id}>
-            <img src={slide.fields.preview[0].url} alt={slide.fields.title} />
+          <SlideItem key={slide.id} preview={slide.fields.preview[0].url}>
+            <div title={slide.fields.title}>
+              <PlayButton />
+            </div>
           </SlideItem>
         )) }
       </Slider>
