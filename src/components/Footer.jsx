@@ -4,6 +4,9 @@ import { Grid, GridCol } from 'griz';
 import { Container } from './util/Helpers';
 import { Heading4, Heading6 } from './util/Typography';
 import NDBLogo from '../../assets/ndb-logo-black.svg';
+import Facebook from '../../assets/facebook.svg';
+import Twitter from '../../assets/twitter.svg';
+import Instagram from '../../assets/instagram.svg';
 
 const FooterStyle = styled.footer`
   box-shadow: 0 .2rem .5rem rgba(10, 10, 10, .5);
@@ -60,6 +63,18 @@ const FooterStyle = styled.footer`
   }
 `;
 
+const Social = styled.div`
+  margin-top: 4rem;
+  a{
+    display: inline-block;
+    margin-right: 1.5rem;
+  }
+  svg{
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+`;
+
 const Footer = () => (
   <Container>
     <FooterStyle>
@@ -68,6 +83,11 @@ const Footer = () => (
           <NDBLogo width={60} />
           <p>&copy; 2019 NollywoodDB</p>
           <Heading6>nollywooddb.com</Heading6>
+          <Social>
+            <a href="/"><Facebook /></a>
+            <a href="/"><Twitter /></a>
+            <a href="/"><Instagram /></a>
+          </Social>
         </div>
       </div>
       <div>
