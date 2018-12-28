@@ -16,20 +16,30 @@ export const fetchTrailers = (request = Request) => async (dispatch) => {
   }
 };
 
-export const fetchName = (request = Request) => async (dispatch) => {
+export const fetchName = (id, request = Request) => async (dispatch) => {
   dispatch({ type: 'LOAD_NAME' });
-  const response = await request.fetchTrailers();
-  dispatch({
-    type: 'FETCH_NAME',
-    payload: response.data,
-  });
+  const response = await request.fetchName(id);
+  try {
+    const { data: { fields } } = response;
+    dispatch({
+      type: 'FETCH_NAME',
+      payload: fields,
+    });
+  } catch (error) {
+    dispatch({ type: 'ERROR_NAME', error: true });
+  }
 };
 
 export const fetchTitle = (request = Request) => async (dispatch) => {
   dispatch({ type: 'LOAD_TITLE' });
-  const response = await request.fetchTrailers();
-  dispatch({
-    type: 'FETCH_TITLE',
-    payload: response.data,
-  });
+  const response = await request.fetchTitle();
+  try {
+    const { data: { records } } = response;
+    dispatch({
+      type: 'FETCH_TITLE',
+      payload: records,
+    });
+  } catch (error) {
+    dispatch({ type: 'ERROR_TITLE', error: true });
+  }
 };

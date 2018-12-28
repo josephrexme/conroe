@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getContentByReady } from '../helpers/functions';
 import { Container, FloatRight } from './util/Helpers';
 import Search from './Search';
 import {
@@ -9,6 +13,7 @@ import {
   Heading4,
   Heading6
 } from './util/Typography';
+import * as actionCreators from '../actionCreators';
 
 const PageStyle = styled.div`
   position: relative;
@@ -118,98 +123,136 @@ const Photos = styled.div`
   }
 `;
 
-const Name = () => (
-  <Container>
-    <Search />
-    <PageStyle>
-      <Content leftpad>
-        <Actor>
-          <img src="http://placehold.it/200" alt="Actor" />
-          <p>
-            <strong>Contact: </strong>
-            <a href="/">View agent or request access</a>
-          </p>
-        </Actor>
-        <Starmeter>
-          120/200
-        </Starmeter>
-        <div>
-          <Heading2 condensed themed>Artist Name</Heading2>
-          <p>
-            Actress/Producer
-          </p>
-          <p>
-            <strong>Born: </strong>
-            21 October 1976 in Lagos, Nigeria
-          </p>
-          <article>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eos libero commodi nulla error natus unde vero veniam
-              quibusdam quis omnis laudantium quisquam repudiandae minus
-              nemo alias? Corrupti quae sed vel voluptas, error accusamus
-              Possimus accusantium, voluptatibus iste repellendus dolorem
-              Repellendus fuga vero nostrum officiis, vel culpa eius
-              voluptatibus magni non exercitationem in pariatur similique
-              animi, labore sint? Voluptate, pariatur reiciendis.
-            </p>
-          </article>
-          <Heading4 condensed themed>Official Photos</Heading4>
-          <Photos>
-            <img src="http://placehold.it/200" alt="official shot" />
-            <img src="http://placehold.it/200" alt="official shot" />
-            <img src="http://placehold.it/200" alt="official shot" />
-            <img src="http://placehold.it/200" alt="official shot" />
-          </Photos>
-        </div>
-      </Content>
-      <Content>
-        <Heading3 condensed themed>Filmography</Heading3>
-      </Content>
-      <FilmList>
-        <li>
-          <FloatRight>
-            <strong>2017</strong>
-          </FloatRight>
-          <Heading6><Link to="/">Movie Title</Link></Heading6>
-          <p>Janet Doe</p>
-        </li>
-        <li>
-          <FloatRight>
-            <strong>2016</strong>
-          </FloatRight>
-          <Heading6><Link to="/">Movie Title</Link></Heading6>
-          <p>Janet Doe</p>
-        </li>
-        <li>
-          <FloatRight>
-            <strong>2015</strong>
-          </FloatRight>
-          <Heading6><Link to="/">Movie Title</Link></Heading6>
-          <p>Janet Doe</p>
-        </li>
-      </FilmList>
-      <Content>
-        <Heading3 condensed themed>Personal Details</Heading3>
-        <p>
-          <strong>Official Pages: </strong>
-          <a href="/">Facebook</a>
-        </p>
-        <p>
-          <strong>Star Sign: </strong>
-          Libra
-        </p>
-        <p>
-          <strong>Height: </strong>
-          { '5"8' }
-        </p>
-        <p>
-          <strong>Personal Quotes: </strong>
-          Fun is a requirement in a successful life.
-        </p>
-      </Content>
-    </PageStyle>
-  </Container>
-);
+class Name extends Component {
+  componentDidMount() {
+    const { match: { params } } = this.props;
+    const { fetchName } = this.props;
+    fetchName(params.id);
+  }
 
-export default Name;
+  loading() {
+    return null;
+  }
+
+  error() {
+    return null;
+  }
+
+  loaded() {
+    const { name: { field } } = this.props;
+    return (
+      <Container>
+        <Search />
+        <PageStyle>
+          <Content leftpad>
+            <Actor>
+              <img src={field.image && field.image[0].url} alt={field.name} />
+              <p>
+                <strong>Contact: </strong>
+                <a href="/">View agent or request access</a>
+              </p>
+            </Actor>
+            <Starmeter>
+              120/200
+            </Starmeter>
+            <div>
+              <Heading2 condensed themed>{field.name}</Heading2>
+              <p>
+                {field.role}
+              </p>
+              <p>
+                <strong>Born: </strong>
+                {`${field.birth_date} in ${field.birth_location}`}
+              </p>
+              <article>
+                <p>
+                  {field.bio}
+                </p>
+              </article>
+              <Heading4 condensed themed>Official Photos</Heading4>
+              <Photos>
+                { field.photos && field.photos.map(photo => (
+                  <img src={photo.url} alt="official shot" key={photo.id} />
+                )) }
+              </Photos>
+            </div>
+          </Content>
+          <Content>
+            <Heading3 condensed themed>Filmography</Heading3>
+          </Content>
+          <FilmList>
+            <li>
+              <FloatRight>
+                <strong>2017</strong>
+              </FloatRight>
+              <Heading6><Link to="/">Movie Title</Link></Heading6>
+              <p>Janet Doe</p>
+            </li>
+            <li>
+              <FloatRight>
+                <strong>2016</strong>
+              </FloatRight>
+              <Heading6><Link to="/">Movie Title</Link></Heading6>
+              <p>Janet Doe</p>
+            </li>
+            <li>
+              <FloatRight>
+                <strong>2015</strong>
+              </FloatRight>
+              <Heading6><Link to="/">Movie Title</Link></Heading6>
+              <p>Janet Doe</p>
+            </li>
+          </FilmList>
+          <Content>
+            <Heading3 condensed themed>Personal Details</Heading3>
+            <p>
+              <strong>Official Pages: </strong>
+              { field.facebook && <a href={field.facebook}>Facebook</a> }
+              { field.twitter && <a href={field.twitter}>Twitter</a> }
+              { field.instagram && <a href={field.instagram}>Instagram</a> }
+            </p>
+            <p>
+              <strong>Star Sign: </strong>
+              Libra
+            </p>
+            <p>
+              <strong>Height: </strong>
+              { field.height }
+            </p>
+            <p>
+              <strong>Personal Quotes: </strong>
+              Fun is a requirement in a successful life.
+            </p>
+          </Content>
+        </PageStyle>
+      </Container>
+    );
+  }
+
+  render() {
+    const { name: { ready } } = this.props;
+    return getContentByReady(ready, this);
+  }
+}
+
+Name.propTypes = {
+  fetchName: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string,
+    url: PropTypes.string,
+    isExact: PropTypes.bool,
+    params: PropTypes.object,
+  }).isRequired,
+  name: PropTypes.shape({
+    ready: PropTypes.string,
+    field: PropTypes.object,
+  }).isRequired,
+};
+
+const mapStateToProps = ({ name }) => ({
+  name,
+});
+
+const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch));
+
+export default connect(mapStateToProps, mapDispatchToProps)(Name);

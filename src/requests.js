@@ -13,6 +13,20 @@ const Request = {
       headers: headers(),
     });
   },
+  fetchName(id) {
+    return axios({
+      method: 'get',
+      url: `${host}/names/${id}`,
+      headers: headers(),
+    });
+  },
+  fetchTitle() {
+    return axios({
+      method: 'get',
+      url: `${host}/titles`,
+      headers: headers(),
+    });
+  }
 };
 
 export default Request;
