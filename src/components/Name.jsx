@@ -10,6 +10,7 @@ import {
   zodiacSign,
 } from '../helpers/functions';
 import { Container, FloatRight } from './util/Helpers';
+import Loading from './util/Loading';
 import Search from './Search';
 import {
   Heading2,
@@ -136,7 +137,7 @@ class Name extends Component {
   }
 
   loading() {
-    return null;
+    return <Loading />;
   }
 
   error() {

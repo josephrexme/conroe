@@ -9,6 +9,7 @@ import { getContentByReady } from '../helpers/functions';
 import ArrowLeft from '../../assets/arrow-left.svg';
 import ArrowRight from '../../assets/arrow-right.svg';
 import PlayButton from '../../assets/play-video-nmdb.svg';
+import Loading from './util/Loading';
 
 const ArrowStyle = styled.button`
   appearance: none;
@@ -131,7 +132,7 @@ class Trailers extends Component {
   }
 
   loading() {
-    return (<p>Loading...</p>);
+    return <Loading />;
   }
 
   loaded() {

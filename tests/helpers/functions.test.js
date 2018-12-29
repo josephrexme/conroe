@@ -15,4 +15,23 @@ describe('Helper Functions', () => {
     expect(input).toBe('Capricorn');
     expect(input2).toBe('Capricorn');
   });
+  describe('Content is derived by ready state', () => {
+    const context = {
+      loading: () => 'Loading content',
+      loaded: () => 'Loaded content',
+      error: () => 'Error content',
+    };
+    test('content is fetched when ready is loading', () => {
+      const input = Functions.getContentByReady('loading', context);
+      expect(input).toBe('Loading content');
+    });
+    test('content is fetched when ready is loaded', () => {
+      const input = Functions.getContentByReady('loaded', context);
+      expect(input).toBe('Loaded content');
+    });
+    test('content is fetched when ready is error', () => {
+      const input = Functions.getContentByReady('error', context);
+      expect(input).toBe('Error content');
+    });
+  });
 });
