@@ -4,8 +4,8 @@ const NOTIFICATION_DURATION = 3000;
 
 export const fetchTrailers = (request = Request) => async (dispatch) => {
   dispatch({ type: 'LOAD_TRAILERS' });
-  const response = await request.fetchTrailers();
   try {
+    const response = await request.fetchTrailers();
     const { data: { records } } = response;
     dispatch({
       type: 'FETCH_TRAILERS',
@@ -18,8 +18,8 @@ export const fetchTrailers = (request = Request) => async (dispatch) => {
 
 export const fetchName = (id, request = Request) => async (dispatch) => {
   dispatch({ type: 'LOAD_NAME' });
-  const response = await request.fetchName(id);
   try {
+    const response = await request.fetchName(id);
     const { data: { fields } } = response;
     dispatch({
       type: 'FETCH_NAME',
@@ -32,8 +32,8 @@ export const fetchName = (id, request = Request) => async (dispatch) => {
 
 export const fetchTitle = (request = Request) => async (dispatch) => {
   dispatch({ type: 'LOAD_TITLE' });
-  const response = await request.fetchTitle();
   try {
+    const response = await request.fetchTitle();
     const { data: { records } } = response;
     dispatch({
       type: 'FETCH_TITLE',

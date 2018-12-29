@@ -18,6 +18,7 @@ import {
   Heading6
 } from './util/Typography';
 import * as actionCreators from '../actionCreators';
+import { NotFound } from './Errors';
 
 const PageStyle = styled.div`
   position: relative;
@@ -139,7 +140,7 @@ class Name extends Component {
   }
 
   error() {
-    return null;
+    return <NotFound />;
   }
 
   loaded() {
