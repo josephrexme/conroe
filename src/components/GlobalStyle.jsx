@@ -50,6 +50,18 @@ const GlobalStyle = createGlobalStyle`
   p{
     margin: 1rem 0;
   }
+  blockquote{
+    position: relative;
+    &::before{
+      content: '"';
+      position: absolute;
+      top: -3rem;
+      left: -2.5rem;
+      color: #aaa;
+      font-size: 5rem;
+      font-family: cursive;
+    }
+  }
 `;
 
 export default GlobalStyle;

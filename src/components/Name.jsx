@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getContentByReady } from '../helpers/functions';
+import {
+  getContentByReady,
+  formatLocalDate,
+  zodiacSign,
+} from '../helpers/functions';
 import { Container, FloatRight } from './util/Helpers';
 import Search from './Search';
 import {
@@ -153,7 +157,7 @@ class Name extends Component {
               </p>
             </Actor>
             <Starmeter>
-              120/200
+              {`${field.starmeter}/200`}
             </Starmeter>
             <div>
               <Heading2 condensed themed>{field.name}</Heading2>
@@ -162,7 +166,7 @@ class Name extends Component {
               </p>
               <p>
                 <strong>Born: </strong>
-                {`${field.birth_date} in ${field.birth_location}`}
+                {`${formatLocalDate(field.birth_date)} in ${field.birth_location}`}
               </p>
               <article>
                 <p>
@@ -213,16 +217,18 @@ class Name extends Component {
             </p>
             <p>
               <strong>Star Sign: </strong>
-              Libra
+              {zodiacSign(field.birth_date)}
             </p>
             <p>
               <strong>Height: </strong>
-              { field.height }
+              {field.height}
             </p>
             <p>
-              <strong>Personal Quotes: </strong>
-              Fun is a requirement in a successful life.
+              <strong>Personal Quote: </strong>
             </p>
+            <blockquote>
+              {field.quote}
+            </blockquote>
           </Content>
         </PageStyle>
       </Container>
