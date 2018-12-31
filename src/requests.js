@@ -13,6 +13,13 @@ const Request = {
       headers: headers(),
     });
   },
+  fetchFeed() {
+    return axios({
+      method: 'get',
+      url: `${host}/feeds`,
+      headers: headers(),
+    });
+  },
   fetchName(id) {
     return axios({
       method: 'get',

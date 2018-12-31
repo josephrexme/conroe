@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Trailers from './Trailers';
-import HomeGrid from './HomeGrid';
+import Feed from './Feed';
 import { Container, Page } from './util/Helpers';
 import { Heading1, Heading3 } from './util/Typography';
 
@@ -95,7 +95,7 @@ const Home = () => (
       <Heading3 condensed themed>Browse Trailers</Heading3>
       <Trailers />
     </Page>
-    <HomeGrid />
+    <Feed />
   </Container>
 );
 

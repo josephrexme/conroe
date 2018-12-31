@@ -16,6 +16,20 @@ export const fetchTrailers = (request = Request) => async (dispatch) => {
   }
 };
 
+export const fetchFeed = (request = Request) => async (dispatch) => {
+  dispatch({ type: 'LOAD_FEED' });
+  try {
+    const response = await request.fetchFeed();
+    const { data: { records } } = response;
+    dispatch({
+      type: 'FETCH_FEED',
+      payload: records,
+    });
+  } catch (error) {
+    dispatch({ type: 'ERROR_FEED', error: true });
+  }
+};
+
 export const fetchName = (id, request = Request) => async (dispatch) => {
   dispatch({ type: 'LOAD_NAME' });
   try {

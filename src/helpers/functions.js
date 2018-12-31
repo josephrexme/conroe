@@ -42,3 +42,9 @@ export const formatLocalDate = (date) => {
   const newDate = new Date(date).toLocaleDateString('en', options);
   return newDate;
 };
+
+export const colorOverlayByRole = role => (({
+  news: 'rgba(0, 0, 0, .5)',
+  event: 'rgba(255, 201, 0, .8)',
+  spotlight: 'rgba(0, 0, 0, .7)'
+})[role]);
