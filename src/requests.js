@@ -16,7 +16,7 @@ const Request = {
   fetchFeed() {
     return axios({
       method: 'get',
-      url: `${host}/feeds`,
+      url: `${host}/feeds?view=Grid%20view`,
       headers: headers(),
     });
   },

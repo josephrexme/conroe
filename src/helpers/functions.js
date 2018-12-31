@@ -46,5 +46,5 @@ export const formatLocalDate = (date) => {
 export const colorOverlayByRole = role => (({
   news: 'rgba(0, 0, 0, .5)',
   event: 'rgba(255, 201, 0, .8)',
-  spotlight: 'rgba(0, 0, 0, .7)'
+  spotlight: 'rgba(0, 0, 0, .6)'
 })[role]);

@@ -84,8 +84,14 @@ class Feed extends Component {
     console.log(entries);
     return (
       <FeedStyle>
-        { entries && entries.reverse().map(({ id, fields }) => (
-          <Headline image="https://picsum.photos/200/300/?random" color={colorOverlayByRole(fields.role)} key={id}>{fields.role}</Headline>
+        { entries && entries.map(({ id, fields }) => (
+          <Headline
+            image={fields.image && fields.image[0].url}
+            color={colorOverlayByRole(fields.role)}
+            key={id}
+          >
+            {fields.role}
+          </Headline>
         )) }
       </FeedStyle>
     );

@@ -49,7 +49,7 @@ describe('Helper Functions', () => {
     });
     test('spotlight role gets its overlay color', () => {
       const input = Functions.colorOverlayByRole('spotlight');
-      expect(input).toBe('rgba(0, 0, 0, .7)');
+      expect(input).toBe('rgba(0, 0, 0, .6)');
     });
   });
 });
