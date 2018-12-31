@@ -14,12 +14,23 @@ const FeedStyle = styled.div`
 
 const Headline = styled.div`
   height: 32rem;
-  padding: 4rem;
-  ${({ image, color }) => image && css`
-    background: linear-gradient(${color}, ${color}), url(${image});
-    background-size: cover;
-    background-position: center center;
-  `}
+  overflow: hidden;
+  > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    color: inherit;
+    transition: transform .5s ease-in-out;
+    ${({ image, color }) => image && css`
+      background: linear-gradient(${color}, ${color}), url(${image});
+      background-size: cover;
+      background-position: center center;
+    `}
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
   @media(min-width: 720px) {
     height: 28rem;
     &:nth-of-type(1) {
@@ -75,7 +86,7 @@ class Feed extends Component {
   }
 
   loading() {
-    return (<Loading />);
+    return <Loading />;
   }
 
   loaded() {
@@ -87,10 +98,11 @@ class Feed extends Component {
         { entries && entries.map(({ id, fields }) => (
           <Headline
             image={fields.image && fields.image[0].url}
+            role={fields.role}
             color={colorOverlayByRole(fields.role)}
             key={id}
           >
-            {fields.role}
+            <a href={fields.link}>{fields.role}</a>
           </Headline>
         )) }
       </FeedStyle>
