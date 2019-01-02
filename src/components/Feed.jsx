@@ -72,11 +72,11 @@ const Headline = styled.div`
     }
     h4{
       position: relative;
-      margin-top: .8rem;
+      margin-top: 1rem;
       &::before{
         content: '';
         position: absolute;
-        top: -.2rem;
+        top: -.3rem;
         left: 0;
         width: 50%;
         border: solid thin var(--color-brand-2);
@@ -95,10 +95,11 @@ const Headline = styled.div`
     }
     h4{
       position: relative;
+      margin-top: 1rem;
       &::before{
         content: '';
         position: absolute;
-        top: -.3rem;
+        top: -.4rem;
         left: 0;
         right: 0;
         width: 30%;
