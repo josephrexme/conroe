@@ -68,13 +68,15 @@ const Headline = styled.div`
       font-family: 'Open Sans Condensed';
       font-weight: 300;
       font-size: 3rem;
+      line-height: 1.0;
     }
     h4{
       position: relative;
+      margin-top: .8rem;
       &::before{
         content: '';
         position: absolute;
-        top: -.5rem;
+        top: -.2rem;
         left: 0;
         width: 50%;
         border: solid thin var(--color-brand-2);
