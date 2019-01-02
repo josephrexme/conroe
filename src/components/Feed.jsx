@@ -12,11 +12,27 @@ const FeedStyle = styled.div`
   margin: 5rem 0;
 `;
 
+const Content = styled.div`
+  max-width: 100%;
+  overflow: hidden;
+  h2{
+    position: relative;
+    visibility: hidden;
+    top: -8rem;
+    height: 0;
+    margin: 0;
+  }
+  h3, h4{
+    max-width: 100%;
+    margin: .5rem 0;
+  }
+`;
+
 const Headline = styled.div`
   height: 32rem;
   overflow: hidden;
   > a {
-    display: block;
+    display: flex;
     width: 100%;
     height: 100%;
     padding: 4rem;
@@ -25,12 +41,70 @@ const Headline = styled.div`
     ${({ image, color }) => image && css`
       background: linear-gradient(${color}, ${color}), url(${image});
       background-size: cover;
-      background-position: center center;
+      background-position: top center;
     `}
     &:hover{
       transform: scale(1.05);
     }
   }
+  ${({ role }) => role === 'event' && css`
+  text-align: center;
+  color: #333;
+    > a{
+      align-items: center;
+      justify-content: center;
+    }
+    h4{
+      font-weight: 400;
+      font-size: 1.4rem;
+    }
+  `}
+  ${({ role }) => role === 'news' && css`
+    > a{
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+    h3{
+      font-family: 'Open Sans Condensed';
+      font-weight: 300;
+      font-size: 3rem;
+    }
+    h4{
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+        top: -.5rem;
+        left: 0;
+        width: 50%;
+        border: solid thin var(--color-brand-2);
+      }
+    }
+  `}
+  ${({ role }) => role === 'spotlight' && css`
+  text-align: center;
+    > a{
+      align-items: flex-end;
+      justify-content: center;
+    }
+    h3{
+      font-weight: 400;
+      font-size: 1.6rem;
+    }
+    h4{
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+        top: -.3rem;
+        left: 0;
+        right: 0;
+        width: 30%;
+        margin: 0 auto;
+        border: solid thin var(--color-brand-2);
+      }
+    }
+  `}
   @media(min-width: 720px) {
     height: 28rem;
     &:nth-of-type(1) {
@@ -102,7 +176,13 @@ class Feed extends Component {
             color={colorOverlayByRole(fields.role)}
             key={id}
           >
-            <a href={fields.link}>{fields.role}</a>
+            <a href={fields.link}>
+              <Content>
+                <h2>Lorem ipsum dolor sit amet cotronomy trfo</h2>
+                <h3>{fields.title}</h3>
+                <h4>{fields.subtitle}</h4>
+              </Content>
+            </a>
           </Headline>
         )) }
       </FeedStyle>
