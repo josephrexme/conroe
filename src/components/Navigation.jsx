@@ -138,7 +138,8 @@ const Hamburger = styled.button`
     }
     &:nth-of-type(2){
       top: 1rem;
-      width: 60%;
+      transform: scaleX(0.6);
+      transform-origin: right;
     }
     &:last-of-type{
       top: 2rem;
@@ -159,6 +160,11 @@ const Hamburger = styled.button`
   @media (min-width: 762px){
     display: none;
   }
+  &:hover{
+    span:nth-of-type(2) {
+      transform: scaleX(1);
+    }
+  }
   ${props => props.nav && css`
     span{
       &:first-of-type{
@@ -175,6 +181,11 @@ const Hamburger = styled.button`
     }
     &::after{
       transform: scale(100);
+    }
+    &:hover{
+      span:nth-of-type(2) {
+        transform: scaleX(0);
+      }
     }
   `}
 `;

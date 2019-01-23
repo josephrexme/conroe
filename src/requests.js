@@ -9,7 +9,7 @@ const Request = {
   fetchTrailers() {
     return axios({
       method: 'get',
-      url: `${host}/trailers`,
+      url: `${host}/trailers?view=Grid%20view`,
       headers: headers(),
     });
   },

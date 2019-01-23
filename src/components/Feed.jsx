@@ -9,19 +9,13 @@ import Loading from './util/Loading';
 
 const FeedStyle = styled.div`
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem 1fr));
   margin: 5rem 0;
 `;
 
 const Content = styled.div`
   max-width: 100%;
   overflow: hidden;
-  h2{
-    position: relative;
-    visibility: hidden;
-    top: -8rem;
-    height: 0;
-    margin: 0;
-  }
   h3, h4{
     max-width: 100%;
     margin: .5rem 0;
@@ -168,8 +162,6 @@ class Feed extends Component {
 
   loaded() {
     const { feed: { entries } } = this.props;
-    /* eslint-disable-next-line */
-    console.log(entries);
     return (
       <FeedStyle>
         { entries && entries.map(({ id, fields }) => (
@@ -181,7 +173,6 @@ class Feed extends Component {
           >
             <a href={fields.link}>
               <Content>
-                <h2>Lorem ipsum dolor sit amet cotronomy trfo</h2>
                 <h3>{fields.title}</h3>
                 <h4>{fields.subtitle}</h4>
               </Content>

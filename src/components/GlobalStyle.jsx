@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     --curve-radius: 1.0rem;
     font-size: 62.5%;
     width: 100%;
+    scroll-behavior: smooth;
   }
   body{
     width: 100%;

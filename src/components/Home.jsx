@@ -4,6 +4,7 @@ import Trailers from './Trailers';
 import Feed from './Feed';
 import { Container, Page } from './util/Helpers';
 import { Heading1, Heading3 } from './util/Typography';
+import SearchList from './SearchList';
 
 const HomeStyle = styled.div`
   padding: 2rem;
@@ -14,8 +15,8 @@ const HomeStyle = styled.div`
     appearance: none;
     display: block;
     width: 100%;
-    height: 4rem;
-    padding: .2rem 1.2rem;
+    height: 5rem;
+    padding: 1rem 1.5rem;
     border: solid .2rem transparent;
     border-radius: var(--curve-radius);
     background: rgba(255, 255, 255, .2);
@@ -45,7 +46,7 @@ const HomeStyle = styled.div`
   button{
     display: block;
     width: 100%;
-    height: 4rem;
+    height: 5rem;
     margin: 1rem 0;
     padding: .5rem 3rem;
     border: solid .2rem transparent;
@@ -63,15 +64,15 @@ const HomeStyle = styled.div`
   }
   @media (min-width: 720px) {
     input{
-      padding: .1rem 11.5rem .1rem 1.5rem;
+      padding: 1rem 12rem 1rem 1.5rem;
     }
     button{
       position: absolute;
       top: 0;
       right: 0;
       width: auto;
-      height: 100%;
       margin: 0;
+      padding: 1rem 3rem;
       border-radius: 0 var(--curve-radius) var(--curve-radius) 0;
     }
   }
@@ -87,6 +88,7 @@ const Home = () => (
           <label htmlFor="mainSearch">
             <input type="search" placeholder="Search Movies, Celebrities, Shows" id="mainSearch" />
             <button type="submit">Search</button>
+            <SearchList />
           </label>
         </form>
       </header>

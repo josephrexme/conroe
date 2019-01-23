@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SearchList from './SearchList';
 
 const SearchStyle = styled.form`
   margin-bottom: 10rem;
@@ -54,7 +55,7 @@ const SearchStyle = styled.form`
       right: 0;
       width: auto;
       margin: auto;
-      padding: 1rem 3rem;
+      padding: 1rem 4rem;
       border-radius: 0 var(--curve-radius) var(--curve-radius) 0;
     }
   }
@@ -65,6 +66,7 @@ const Search = () => (
     <label htmlFor="pageSearch">
       <input type="search" placeholder="Search Movies, Celebrities, Shows" />
       <button type="submit">Search</button>
+      <SearchList />
     </label>
   </SearchStyle>
 );
